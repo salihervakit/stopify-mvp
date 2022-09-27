@@ -1,0 +1,38 @@
+<h1>Add a song</h1>
+
+<form action="/song/createSong" enctype="multipart/form-data" method="POST">
+	<div>
+		<label for="playlists">Choose a playlist:</label>
+
+		<select name="playlist" id="playlist">
+			<option value="">--Please choose an option--</option>
+			<% for (let i = 0; i < playlists.length; i++) {%>
+				<option value="<%=playlists[i]._id%>"><%=playlists[i].title%></option>
+			<% } %>
+		</select>
+	</div>
+
+	<div>
+		<label for="title" class="form-label">Title</label>
+		<input type="text" class="form-control" id="title" name="title">
+	</div>
+
+	<div>
+		<label for="audio" class="form-label">Song file</label>
+		<input type="file" class="form-control" id="audio" name="file">
+	</div>
+	
+	<input type="text" name="song-duration" id="song-duration" class="hidden" size="5" />
+
+	<button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+</form>
+
+<script>
+	// const duration = 0
+	// document.getElementById('audio').addEventListener('canplaythrough', function(e){
+	//  //add duration in the input field #f_du
+	//  f_duration = Math.round(e.currentTarget.duration);
+	//  document.getElementById('f_du').value = f_duration;
+	//  URL.revokeObjectURL(obUrl);
+	// });
+</script>

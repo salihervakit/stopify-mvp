@@ -1,0 +1,14 @@
+<%- include('layouts/header') -%>
+
+<div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
+  <%- include('./layouts/sidebar.ejs') -%>
+
+  <div class="w-full">
+    <main class="w-full h-full main playlists">
+      <%- include('./partials/_create_playlist.ejs') -%>
+      <%- include('./partials/_show_playlists.ejs') -%>
+    </main>
+  </div>
+</div>
+
+<%- include('./layouts/footer.ejs') -%>

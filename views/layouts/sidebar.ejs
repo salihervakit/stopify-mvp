@@ -1,0 +1,55 @@
+<div
+  @click.away="open = false"
+  class="flex flex-col w-full md:w-64 text-gray-700 bg-white flex-shrink-0 sidebar"
+  x-data="{ open: false }"
+>
+  <nav>
+    <ul class="text-sm font-semibold">
+      <li class="block">
+        <label><i class="fa-solid fa-house fa-fw"></i></label>
+        <a class="px-2 py-2 mt-2" href="http://localhost:3000/dashboard"
+          >Home</a
+        >
+      </li>
+      <li class="block">
+        <label><i class="fa-solid fa-magnifying-glass fa-fw"></i></label>
+        <a class="px-2 py-2 mt-2" href="http://localhost:3000/dashboard"
+          >Search</a
+        >
+      </li>
+      <li class="block">
+        <label><i class="fa-solid fa-book-bookmark fa-fw"></i></label>
+        <a class="px-2 py-2 mt-2" href="http://localhost:3000/collection"
+          >Your Library</a
+        >
+      </li>
+    </ul>
+
+    <ul class="text-sm font-semibold">
+      <li class="block">
+        <label><i class="fa-solid fa-plus fa-fw"></i></label>
+        <a class="px-2 py-2 mt-2" href="http://localhost:3000/dashboard"
+          >Create Playlist</a
+        >
+      </li>
+      <li class="block">
+        <label><i class="fa-solid fa-heart fa-fw"></i></label>
+        <a class="px-2 py-2 mt-2" href="http://localhost:3000/dashboard"
+          >Liked Songs</a
+        >
+      </li>
+    </ul>
+    <div class="relative flex py-2 px-8 items-center">
+      <div class="flex-grow border-t border-gray-400 divider"></div>
+    </div>
+    <ul class="playlists text-sm">
+      <% for (let i = 0; i < playlists.length; i++) {%>
+      <li class="block">
+        <a class="px-2 py-2 mt-2" href="/playlist/<%=playlists[i]._id%>"
+          ><%=playlists[i].title%></a
+        >
+      </li>
+      <% } %>
+    </ul>
+  </nav>
+</div>

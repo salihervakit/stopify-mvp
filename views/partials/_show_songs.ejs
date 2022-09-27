@@ -1,0 +1,78 @@
+<div id="songs">
+  <% for(let i = 0; i < songs.length; i++) {%>
+  <div class="flex ml-8 pl-12 py-4 relative song text-white">
+    <p class="text-white select-none unclickable"><%= songs[i].title %></p>
+    <audio src="<%= songs[i].songUrl %>" type="audio/mp3"></audio>
+    <span class="date absolute text-sm select-none unclickable"
+      ><%= moment(songs[i].addedAt).format('Do MMMM, YYYY') %></span
+    >
+    <span class="duration text-sm absolute select-none unclickable"></span>
+    <form
+      action="/song/deleteSong/<%= songs[i]._id %>?_method=DELETE"
+      method="POST"
+      class="absolute form inline-block"
+    >
+      <button
+        class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+      >
+        Delete
+      </button>
+    </form>
+  </div>
+  <% } %>
+</div>
+
+<script>
+
+  let lastSong = ''
+
+  document.querySelectorAll(".song").forEach((song) => {
+    song.addEventListener("click", (a) => {
+      const clicked = a.target
+      const song = a.target.childNodes[3]
+
+
+      if (clicked.matches(".song") && !song.paused) {
+        song.pause()
+      } else if (clicked.matches(".song") && !song.playing) {
+        song.play()
+        console.log(song)
+        console.log(lastSong)
+        if (lastSong && lastSong !== song) {
+          lastSong.pause()
+        }
+        lastSong = song
+      } else {
+        return false
+      }
+    })
+  })
+
+  window.addEventListener("load", (event) => {
+    const songs = document.getElementById("songs")
+    const songsLength = songs.childNodes.length
+    for (let i = 1; i < songsLength; i += 2) {
+      const song = songs.childNodes[i].childNodes[3]
+      const duration = formatTime(song.duration)
+      const span = songs.childNodes[i].childNodes[7]
+      span.innerHTML = duration
+    }
+  })
+
+  const formatTime = (secs) => {
+    let mins = 0
+    while (secs >= 60) {
+      mins++
+      secs -= 60
+    }
+    secs = Math.ceil(secs)
+    return `${mins}:${secs}`
+  }
+
+  const confirmDelete = req => {
+    console.log(req)
+  }
+
+
+
+</script>

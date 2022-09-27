@@ -1,0 +1,28 @@
+<div class="playlist artboard phone-1">
+  <a href="#">
+    <label><i class="fa-solid fa-plus"></i></label>
+  </a>
+</div>
+
+<h1 class="text-white text-4xl m-5">Playlists</h1>
+<div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 mx-5">
+  <% for(let i = 0; i < playlists.length; i++) {%>
+  <div class="p-4 playlist-card">
+    <div class="justify-center overflow-hidden pb-5">
+      <img class="playlist-img rounded-md" src="temp_img.jpg" />
+    </div>
+    <h3 class="text-white text-lg"><%=playlists[i].title%></h3>
+    <form
+      action="/playlist/deletePlaylist/<%= playlists[i]._id %>?_method=DELETE"
+      method="POST"
+    >
+      <button
+        type="submit"
+        class="border border-red-500 bg-red-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-red-600 focus:outline-none focus:shadow-outline"
+      >
+        Delete
+      </button>
+    </form>
+  </div>
+  <% } %>
+</div>

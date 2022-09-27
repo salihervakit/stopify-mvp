@@ -1,0 +1,95 @@
+* {
+    font-family: 'Roboto';
+}
+
+/* Layout */
+.header {
+    background-image: linear-gradient(to top, #4b4b47, #919189);
+    height: 30vh;
+}
+.main {
+    background-image: linear-gradient(to top, #121212 50%, #383835);
+    height: 70vh;
+}
+
+/* Sidebar */
+.flex-col.sidebar {
+    background-color: #000000;
+}
+nav {
+    color: #b3b3b3;
+}
+ul:first-child li.block:first-child {
+    margin-top: 50px;
+}
+ul:nth-child(2) {
+    margin-top: 40px;
+}
+nav li.block {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    transition: all 0.2s ease;
+}
+nav li:hover {
+    color: #ffffff;
+}
+nav i {
+    font-size: 1.3rem;
+}
+
+
+/* Songs header */
+tr th {
+    color: #b3b3b3
+}
+tr .date {
+    margin-left: 61rem;
+}
+
+
+/* Songs */
+
+.song {
+    color: #b3b3b3;
+}
+.song:hover {
+    background-color: #2d2d2d;
+}
+.absolute.date {
+    left: 69rem;
+}
+.absolute.duration {
+    left: 83.5rem;
+}
+.absolute.form {
+    left: 93rem;
+    top: 7px;
+}
+.unclickable {
+    pointer-events: none;
+}
+
+
+/* Collection */
+.main.playlists {
+    background-color: #121212;
+    background-image: none;
+}
+.playlist-card {
+    background-color: #171717;
+    border-radius: 5px;
+}
+
+
+/* Helper */
+.divider {
+    background-color: #282828;
+    opacity: 0.25;
+}
+.active {
+    background-color: red !important;
+}
+.hidden {
+    display: none;
+}

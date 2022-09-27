@@ -1,0 +1,37 @@
+<%- include('layouts/header') -%>
+
+<div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
+  <%- include('./layouts/sidebar.ejs') -%>
+
+  <div class="w-full">
+    <section class="w-full header"></section>
+    <main class="w-full main">
+      <div class="flex items-center overflow-hidden">
+        <div class="rounded mt-6">
+          <table class="min-w-max w-full table-auto">
+            <thead>
+              <tr class="uppercase text-sm leading-normal">
+                <th class="py-3 ml-14 inline-block font-light">#</th>
+                <th class="py-3 px-4 inline-block font-light title">TITLE</th>
+                <th class="py-3 px-6 mr-32 inline-block font-light date">
+                  Date Added
+                </th>
+                <th>
+                  <label><i class="fa-regular fa-clock"></i></label>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
+      <div class="relative flex py-2 px-8 items-center">
+        <div class="flex-grow border-t border-gray-400 divider"></div>
+      </div>
+
+      <%- include('./partials/_show_songs.ejs') -%>
+    </main>
+  </div>
+</div>
+
+<%- include('./layouts/footer.ejs') -%>

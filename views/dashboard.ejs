@@ -1,0 +1,14 @@
+<%- include('layouts/header') -%>
+
+<div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
+  <%- include('./layouts/sidebar.ejs') -%>
+
+  <div class="w-full">
+    <section class="w-full header">
+      <a href="/logout">Logout</a>
+    </section>
+    <main class="w-full main"><%- include('./partials/_add_song.ejs') -%></main>
+  </div>
+</div>
+
+<%- include('./layouts/footer.ejs') -%>
