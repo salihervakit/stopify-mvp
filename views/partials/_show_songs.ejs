@@ -36,8 +36,6 @@
         song.pause()
       } else if (clicked.matches(".song") && !song.playing) {
         song.play()
-        console.log(song)
-        console.log(lastSong)
         if (lastSong && lastSong !== song) {
           lastSong.pause()
         }
